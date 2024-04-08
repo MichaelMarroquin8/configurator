@@ -3,56 +3,54 @@
   flex-direction: row;
   width: 100%;
   height: 100vh;
-  box-sizing: border-box; /* Asegúrate de que el padding no afecte el ancho total */
+  box-sizing: border-box; /* This ensures padding doesn't affect the total width */
 }
 
 .options {
-  width: 15%; /* El menú ocupa el 30% del ancho de la vista */
-  height: 100%; /* El menú ocupa la altura completa de la vista */
+  width: 15%; /* The menu takes up 15% of the viewport width */
+  height: 100%; /* The menu takes the full height of the viewport */
   padding: 10px;
-  background-color: #cad65f; /* Color de fondo del menú */
+  background-color: #cad65f; /* Background color for the menu */
   font-family: Arial, sans-serif;
   color: white;
-  position: fixed; /* Fija el menú a la izquierda */
-  top: 0; /* Inicia en la parte superior */
-  left: 0; /* Alineado a la izquierda */
-  transition: left 0.5s ease; /* Animación suave para aparecer y desaparecer */
+  position: fixed; /* The menu is fixed to the left */
+  top: 0; /* Starts at the top */
+  left: 0; /* Aligned to the left */
+  transition: left 0.5s ease; /* Smooth transition for appearing and disappearing */
+  z-index: 1000; /* Ensures .options overlap .app when necessary */
 }
 
 .app {
-  width: 80%; /* El contenedor .app ocupa el 70% del ancho de la vista */
-  margin-left: 20%; /* Empuja .app para comenzar después del menú .options */
-  height: 100%; /* Altura completa de la vista */
-  position: relative; /* Posición relativa para posicionar otros elementos dentro si es necesario */
-  transition: margin-left 0.5s ease; /* Animación suave para cuando el menú se desplace */
+  width: 85%; /* The .app container takes up the rest of the viewport width */
+  margin-left: 16%; /* Pushes .app to start after the .options menu */
+  height: 100%; /* Takes the full height of the viewport */
+  position: relative; /* Relative positioning for positioning other elements within if necessary */
+  transition: margin-left 0.5s ease; /* Smooth transition for when the menu is toggled */
 }
 
 #api-frame {
-  width: 100%; /* Toma el ancho completo de .app */
-  height: auto;
-  aspect-ratio: 16 / 9;
-  border: none;
+  width: 100%; /* Takes the full width of .app */
+  height: auto; /* Height is auto to maintain aspect ratio */
+  aspect-ratio: 16 / 9; /* Aspect ratio for the frame */
+  border: none; /* No border for the iframe */
 }
 
-/* Ajusta los media queries como sea necesario */
+/* Adjust the media queries as necessary */
 @media (max-width: 768px) {
-  .options {
-    width: 40%; /* Porcentaje mayor para dispositivos más pequeños si es necesario */
+  .options,
+  .app {
+    width: 100%; /* Both .options and .app take full width */
+    margin-left: 0; /* Reset margin-left */
   }
 
-  .app {
-    width: 60%; /* Ancho reducido para .app en dispositivos más pequeños */
-    margin-left: 40%; /* Margen izquierdo aumentado para dispositivos más pequeños */
+  .options {
+    height: auto; /* Menu height becomes auto to wrap content */
+    position: relative; /* Position relative to allow .app to follow */
   }
 }
 
 @media (max-width: 480px) {
-  .options {
-    width: 50%; /* Porcentaje aún mayor para dispositivos móviles si es necesario */
-  }
-
   .app {
-    width: 50%; /* Ancho reducido para .app en dispositivos móviles */
-    margin-left: 50%; /* Margen izquierdo aumentado para dispositivos móviles */
+    padding-top: 10px; /* Add padding top to .app to avoid overlapping with .options */
   }
 }
