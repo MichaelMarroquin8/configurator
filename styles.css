@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box; /* Asegúrate de que el padding no afecte el ancho total */
+}
+
+.options {
+  width: 15%; /* El menú ocupa el 30% del ancho de la vista */
+  height: 100%; /* El menú ocupa la altura completa de la vista */
+  padding: 10px;
+  background-color: #cad65f; /* Color de fondo del menú */
+  font-family: Arial, sans-serif;
+  color: white;
+  position: fixed; /* Fija el menú a la izquierda */
+  top: 0; /* Inicia en la parte superior */
+  left: 0; /* Alineado a la izquierda */
+  transition: left 0.5s ease; /* Animación suave para aparecer y desaparecer */
+}
+
+.app {
+  width: 80%; /* El contenedor .app ocupa el 70% del ancho de la vista */
+  margin-left: 20%; /* Empuja .app para comenzar después del menú .options */
+  height: 100%; /* Altura completa de la vista */
+  position: relative; /* Posición relativa para posicionar otros elementos dentro si es necesario */
+  transition: margin-left 0.5s ease; /* Animación suave para cuando el menú se desplace */
+}
+
+#api-frame {
+  width: 100%; /* Toma el ancho completo de .app */
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+/* Ajusta los media queries como sea necesario */
+@media (max-width: 768px) {
+  .options {
+    width: 40%; /* Porcentaje mayor para dispositivos más pequeños si es necesario */
+  }
+
+  .app {
+    width: 60%; /* Ancho reducido para .app en dispositivos más pequeños */
+    margin-left: 40%; /* Margen izquierdo aumentado para dispositivos más pequeños */
+  }
+}
+
+@media (max-width: 480px) {
+  .options {
+    width: 50%; /* Porcentaje aún mayor para dispositivos móviles si es necesario */
+  }
+
+  .app {
+    width: 50%; /* Ancho reducido para .app en dispositivos móviles */
+    margin-left: 50%; /* Margen izquierdo aumentado para dispositivos móviles */
+  }
+}
