@@ -6254,24 +6254,18 @@ var SketchfabConfigurator = (function (e) {
 
         applyOptionSelect: function (e, t) {
           var r = this.options[e];
-          var storage = document.getElementById("1");
-          var kitchen = document.getElementById("2");
-          var powerStation = document.getElementById("3");
           var solarPanel = document.getElementById("7");
           var beddingBox = document.getElementById("8");
-          var propaneTank = document.getElementById("9");
-          var watterTank = document.getElementById("10");
-          console.log(e)
-          console.log(t)
-          if (e == 0 && t == 3 || t == 4) {
+
+          if ((e == 0 && t == 3) || t == 4) {
             if (beddingBox) {
               solarPanel.disabled = false; // Deshabilita el checkbox con id 'solar panel'
               beddingBox.disabled = true; // Deshabilita el checkbox con id 'solar panel'
               beddingBox.checked = false;
               var selectorValue = beddingBox.getAttribute("selector");
-                this.viewer.hide(selectorValue);
+              this.viewer.hide(selectorValue);
             }
-            
+
             if ("select" !== r.type)
               throw new Error('Option is not of "select" type');
             for (var n = 0, a = r.options.length; n < a; n++)
@@ -6279,9 +6273,9 @@ var SketchfabConfigurator = (function (e) {
                 (n === t
                   ? this.viewer.show(r.options[n].selector)
                   : this.viewer.hide(r.options[n].selector));
-          }else{
+          } else {
             if (beddingBox) {
-            beddingBox.disabled = false;
+              beddingBox.disabled = false;
             }
             if ("select" !== r.type)
               throw new Error('Option is not of "select" type');
@@ -6292,7 +6286,7 @@ var SketchfabConfigurator = (function (e) {
                   : this.viewer.hide(r.options[n].selector));
           }
         },
-        
+
         applyOptionVisible: function (e, t) {
           var r = this.options[e];
           if ("visible" !== r.type)
@@ -6306,34 +6300,36 @@ var SketchfabConfigurator = (function (e) {
           var propaneTank = document.getElementById("9");
           var watterTank = document.getElementById("10");
           if (e === 5) {
-            if (propaneTank && watterTank && powerStation && kitchen) { // Verifica si los elementos existen
-              console.log(t)
+            if (propaneTank && watterTank && powerStation && kitchen) {
+              // Verifica si los elementos existen
               if (!t) {
                 propaneTank.disabled = false; // Habilitamos el checkbox con id 'propaneTank'
                 watterTank.disabled = false; // Habilitamos el checkbox con id 'watterTank'
 
-                //selects 
-                storage.disabled = false
+                //selects
+                storage.disabled = false;
                 kitchen.disabled = false;
-                powerStation.disabled = false; 
+                powerStation.disabled = false;
               } else {
                 storage.value = "0";
                 kitchen.value = "0";
                 powerStation.value = "0";
-                this.applyOptionSelect(1, 0); 
-                this.applyOptionSelect(2, 0); 
-                this.applyOptionSelect(3, 0); 
-                propaneTank.disabled = true; // Habilitamos el checkbox 
-                watterTank.disabled = true; // Habilitamos el checkbox 
-                propaneTank.checked = false; // Habilitamos el checkbox 
-                watterTank.checked = false; // Habilitamos el checkbox 
+                this.applyOptionSelect(1, 0);
+                this.applyOptionSelect(2, 0);
+                this.applyOptionSelect(3, 0);
+                propaneTank.disabled = true; // Habilitamos el checkbox
+                watterTank.disabled = true; // Habilitamos el checkbox
+                propaneTank.checked = false; // Habilitamos el checkbox
+                watterTank.checked = false; // Habilitamos el checkbox
 
                 //selects
                 storage.disabled = true; // Habilitamos el select
                 kitchen.disabled = true; // Habilitamos el select
                 powerStation.disabled = true; // Habilitamos el select
-                var selectorValuepropaneTank = propaneTank.getAttribute("selector");
-                var selectorValuewatterTank = watterTank.getAttribute("selector");
+                var selectorValuepropaneTank =
+                  propaneTank.getAttribute("selector");
+                var selectorValuewatterTank =
+                  watterTank.getAttribute("selector");
                 this.viewer.hide(selectorValuepropaneTank);
                 this.viewer.hide(selectorValuewatterTank);
               }
@@ -6356,7 +6352,6 @@ var SketchfabConfigurator = (function (e) {
           }
           t ? this.viewer.show(n) : this.viewer.hide(n);
         },
-        
 
         applyOptionTexture: function (e, t) {
           var r = this.options[e];
@@ -6455,26 +6450,18 @@ var SketchfabConfigurator = (function (e) {
           e.addEventListener(
             "viewerready",
             function () {
-              e.addEventListener("click", function (e) {
-                console.info(e);
-              }),
+              e.addEventListener("click", function (e) {}),
                 this._onViewerReady()
                   .then(
                     function () {
-                      console.log("Viewer ready"),
-                        (this.iframe.className += " js-ready"),
-                        this.callback();
+                      (this.iframe.className += " js-ready"), this.callback();
                     }.bind(this)
                   )
-                  .catch(function (e) {
-                    console.error(e);
-                  });
+                  .catch(function (e) {});
             }.bind(this)
           );
       },
-      _onError: function () {
-        console.error("Viewer error");
-      },
+      _onError: function () {},
       _onViewerReady: function () {
         var e = [this._getGraph(), this._getMaterials()];
         return Promise.all(e)
@@ -6482,7 +6469,6 @@ var SketchfabConfigurator = (function (e) {
             function (e) {
               (this.doc = e[0]),
                 (this.materials = e[1]),
-                console.info("Graph", e[0]),
                 console.info("Materials", e[1]);
             }.bind(this)
           )
@@ -6831,7 +6817,6 @@ var SketchfabConfigurator = (function (e) {
       },
       default: !0,
     };
-    console.log(e);
   },
   function (e) {
     e.exports = {

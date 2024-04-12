@@ -247,7 +247,7 @@
         default: 0,
       },
       {
-        id: 2,
+        price: 500,
         name: "Kayak",
         type: "visible",
         selector: '[instance="10369"]',
@@ -255,35 +255,35 @@
         // disabled: "disabled",
       },
       {
-        id: 3,
+        price: 500,
         name: "Shower",
         type: "visible",
         selector: '[instance="5559"]',
         default: false,
       },
       {
-        id: 4,
+        price: 500,
         name: "Solar Panel",
         type: "visible",
         selector: '[instance="5691"]',
         default: true,
       },
       {
-        id: 5,
+        price: 500,
         name: "Bedding Box",
         type: "visible",
         selector: '[instance="5570"]',
         default: false,
       },
       {
-        id: 6,
+        price: 500,
         name: "Propane Tank",
         type: "visible",
         selector: '[instance="7874"]',
         default: false,
       },
       {
-        id: 7,
+        price: 500,
         name: "Watter Tank",
         type: "visible",
         selector: '[instance="7917"]',
@@ -300,63 +300,67 @@
     config
   );
 
-  var basePrice = 6000; // Establece el valor base a 6000
-
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var basePrice = 6000; // Establece el valor base a 6000
+    var totalPrice = basePrice; // Inicializamos el precio total con el precio base
 
     // Esta función se encarga de actualizar el precio
-    function updatePriceByName(tentName) {
+    function updatePriceByName(tentName, index) {
       // Encuentra la opción con el nombre correspondiente y actualiza el precio
-      var selectedOption = config.config[0].options.find(
+      var selectedOption = config.config[index].options.find(
         (option) => option.name === tentName
       );
       if (selectedOption) {
-        var totalPrice = basePrice + selectedOption.price;
+        totalPrice += selectedOption.price; // Sumamos el precio de la opción seleccionada al precio total
         document.getElementById(
-          "total-value"
-        ).textContent = `Total: $${totalPrice}`;
+          'total-value'
+        ).textContent = `Total: $${totalPrice}`; // Mostramos el precio total actualizado
       }
     }
 
     // Esta función inicializa el event listener en el select de Sketchfab
-    function initializeSketchfabSelectListener() {
-      var sketchfabSelect = document.querySelector(".option__control select");
+    function initializeSketchfabSelectListener(index) {
+      var sketchfabSelect = document.getElementById(index);
       if (sketchfabSelect) {
-        sketchfabSelect.addEventListener("change", function () {
+        sketchfabSelect.addEventListener('change', function () {
           var tentName =
             sketchfabSelect.options[sketchfabSelect.selectedIndex].text;
-          updatePriceByName(tentName); // Actualizamos el precio basándonos en el nombre de la tienda
+          updatePriceByName(tentName, index); // Actualizamos el precio basándonos en el nombre de la tienda y el índice del select
         });
 
         // Actualizamos el precio inicialmente de acuerdo al valor predeterminado seleccionado
         var initialTentName =
           sketchfabSelect.options[sketchfabSelect.selectedIndex].text;
-        updatePriceByName(initialTentName);
+        updatePriceByName(initialTentName, index);
       }
     }
 
-    // Usamos un MutationObserver para detectar cuando el select de Sketchfab esté disponible
+    // Usamos un MutationObserver para detectar cuando los select de Sketchfab estén disponibles
     var observer = new MutationObserver(function (mutations) {
-      var selectFound = document.querySelector(".option__control select");
-      if (selectFound) {
-        initializeSketchfabSelectListener();
-        observer.disconnect(); // Desconecta el observer una vez que el select es encontrado
+      for (var i = 0; i < 5; i++) {
+        var selectFound = document.getElementById(i);
+        if (selectFound) {
+          initializeSketchfabSelectListener(i);
+        }
       }
+      observer.disconnect(); // Desconecta el observer una vez que los selects son encontrados
     });
-   
+
+    // Empezamos a observar cambios en el DOM
     observer.observe(document.body, {
       childList: true,
       subtree: true,
     });
   });
 
-  // Initial update for default value
-  var initialPrice = config.config[0].options[config.config[0].default].price;
-  var totalValueEl = document.getElementById("total-value");
-  if (totalValueEl) {
-    totalValueEl.textContent = `Total Value:  ${initialPrice}`;
+  // Actualizamos el precio inicialmente para todos los selects
+  for (var i = 0; i < config.config.length; i++) {
+    var initialPrice = config.config[i].options[config.config[i].default].price;
+    var totalValueEl = document.getElementById('total-value');
+    if (totalValueEl) {
+      totalValueEl.textContent = `Total Value:  ${initialPrice}`;
+    }
   }
-
 </script>
 
 
