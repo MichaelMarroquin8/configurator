@@ -1,261 +1,373 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>360 Sierra Configurator</title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/"
+  data-template="vertical-menu-template-free">
 
-  <body>
-    <div class="app">
-      <!-- El menú de opciones se coloca encima del iframe -->
-      <div class="options">Choose your Options:</div>
-      <div id="total-value">Total: $0</div>
-      <iframe
-        src=""
-        id="api-frame"
-        allowfullscreen
-        mozallowfullscreen="true"
-        webkitallowfullscreen="true"
-        allow="vr"
-      ></iframe>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+  <title>Proyecto</title>
+  <meta name="description" content="" />
+  <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+  <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="../assets/css/demo.css" />
+  <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+  <script src="../assets/vendor/js/helpers.js"></script>
+  <script src="../assets/js/config.js"></script>
+  <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.3.2.js"></script>
+  <script type="text/javascript" src="../assets/js/SketchfabConfigurator-1.0.6.js"></script>
+</head>
+
+<body>
+  <!-- Layout wrapper -->
+  <div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+      <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+        <div class="app-brand demo">
+          <a href="index.html" class="app-brand-link">
+            <span class="app-brand-text demo menu-text fw-bolder ms-2">360 sierra</span>
+          </a>
+          <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+            <i class="bx bx-chevron-left bx-sm align-middle"></i>
+          </a>
+        </div>
+        <div class="menu-inner-shadow"></div>
+        <ul class="menu-inner py-1">
+          <!-- Dashboard -->
+          <li class="menu-item">
+            <a class="menu-link">
+              <div class="options">Choose your Options:</div>
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <div class="layout-page">
+        <nav
+          class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+          id="layout-navbar">
+          <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+            <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+              <i class="bx bx-menu bx-sm"></i>
+            </a>
+          </div>
+
+       
+        </nav>
+        <!-- Content wrapper -->
+        <div class="content-wrapper">
+          <!-- Content -->
+          <div class="container-md flex-grow-1 container-p-y">
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light" id="total-value"></h4>
+            <!-- Examples -->
+            <div class="row mb-5">
+              <div class="col-sm-6 col-lg-12 mb-12">
+                <div class="card">
+
+                  <iframe src="" id="api-frame" allowfullscreen mozallowfullscreen="true"
+                    webkitallowfullscreen="true"></iframe>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Elemento 1</li>
+                    <li class="list-group-item">Elemento 2</li>
+                </div>
+                </ul>
+              </div>
+            </div>
+            <!-- Examples -->
+          </div>
+        </div>
+      </div>
     </div>
-  </body>
 
-  <script
-    type="text/javascript"
-    src="https://static.sketchfab.com/api/sketchfab-viewer-1.3.2.js"
-  ></script>
-  <script
-    type="text/javascript"
-    src="./SketchfabConfigurator-1.0.6.js"
-  ></script>
-  <script type="text/javascript">
-    var config = {
-      model: '8c4b67b4e68841289803d3d25ea08822',
-      params: {
-        camera: 0,
-        preload: 1,
-        ui_controls: 0,
-        ui_infos: 0,
-        ui_watermark: 0,
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+    <script src="../assets/vendor/libs/masonry/masonry.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+</body>
+<script type="text/javascript">
+  var config = {
+    model: "8c4b67b4e68841289803d3d25ea08822",
+    params: {
+      camera: 0,
+      preload: 1,
+      ui_controls: 0,
+      ui_infos: 0,
+      ui_watermark: 0,
+    },
+    config: [
+      {
+        name: "Tent Option",
+        type: "select",
+        options: [
+          {
+            name: "No Tent",
+            selector: '[instance="000"]',
+            price: 200,
+
+          },
+          {
+            name: "Yakima Tent",
+            selector: '[instance="1662"]',
+            price: 2000,
+
+          },
+          {
+            name: "Yakima Tent Closed",
+            selector: '[instance="2942"]',
+            price: 2000,
+
+          },
+          {
+            name: "Inflatable Tent",
+            selector: '[instance="2957"]',
+            price: 2500,
+
+          },
+          {
+            name: "Inflatable Tent Closed",
+            selector: '[instance="3689"]',
+            price: 2500,
+
+          },
+
+        ],
+        default: 0,
       },
-      config: [
-        {
-          name: 'Tent Option',
-          type: 'select',
-          options: [
-            {
-              name: 'Yakima Tent',
-              selector: '[instance="1662"]',
-              price: 2000,
-            },
-            {
-              name: 'Yakima Tent Closed',
-              selector: '[instance="2942"]',
-              price: 2000,
-            },
-            {
-              name: 'Inflatable Tent',
-              selector: '[instance="2957"]',
-              price: 2500,
-            },
-            {
-              name: 'Inflatable Tent Closed',
-              selector: '[instance="3689"]',
-              price: 2500,
-            },
-            {
-              name: 'No Tent',
-              selector: '[instance="000"]',
-              price: 200,
-            },
-          ],
-          default: 0,
-        },
-        {
-          name: 'Kayak',
-          type: 'visible',
-          selector: '[instance="10369"]',
-          default: false,
-        },
-        {
-          name: 'Shower',
-          type: 'visible',
-          selector: '[instance="5559"]',
-          default: false,
-        },
-        {
-          name: 'Solar Panel',
-          type: 'visible',
-          selector: '[instance="5691"]',
-          default: true,
-        },
-        {
-          name: 'Bedding Box',
-          type: 'visible',
-          selector: '[instance="5570"]',
-          default: true,
-        },
-        {
-          name: 'Propane Tank',
-          type: 'visible',
-          selector: '[instance="7874"]',
-          default: true,
-        },
-        {
-          name: 'Watter Tank',
-          type: 'visible',
-          selector: '[instance="7917"]',
-          default: true,
-        },
-        {
-          name: 'Storage',
-          type: 'select',
-          options: [
-            {
-              name: 'Dometic Cases',
-              selector: '[instance="8008"]',
-            },
-            {
-              name: 'Wolf Pack Pro',
-              selector: '[instance="8169"]',
-            },
-            {
-              name: 'None',
-              selector: '[instance="11111"]',
-            },
-          ],
-          default: 0,
-        },
-        {
-          name: 'Kitchen',
-          type: 'select',
-          options: [
-            {
-              name: 'Kitchen Closed',
-              selector: '[instance="3992"]',
-            },
-            {
-              name: 'Kitchen Open',
-              selector: '[instance="4123"]',
-            },
-            {
-              name: 'None',
-              selector: '[instance="22222"]',
-            },
-          ],
-          default: 0,
-        },
-        {
-          name: 'Power Station',
-          type: 'select',
-          options: [
-            {
-              name: 'Power Station',
-              selector: '[instance= "8515"]',
-            },
-            {
-              name: 'Power Station Open',
-              selector: '[instance="8547"]',
-            },
-            {
-              name: 'None',
-              selector: '[instance="33333"]',
-            },
-          ],
-          default: 0,
-        },
-        {
-          name: 'Cooler',
-          type: 'select',
-          options: [
-            {
-              name: 'Powered Cooler',
-              selector: '[instance= "8330"]',
-            },
-            {
-              name: 'Ice Chest',
-              selector: '[instance="8481"]',
-            },
-            {
-              name: 'Ice Chest Rotated',
-              selector: '[instance="10500"]',
-            },
-            {
-              name: 'None',
-              selector: '[instance="4444"]',
-            },
-          ],
-          default: 0,
-        },
-      ],
-    };
+      {
+        name: "Storage",
+        type: "select",
+        options: [
+          {
+            name: "None",
+            selector: '[instance="11111"]',
+            price: 1,
 
-    var iframeEl = document.getElementById('api-frame');
-    var optionsEl = document.querySelector('.options');
-    var configurator = new SketchfabConfigurator.Configurator(
-      iframeEl,
-      optionsEl,
-      config
-    );
+          },
 
-    var basePrice = 6000; // Establece el valor base a 6000
+          {
+            name: "Dometic Cases",
+            selector: '[instance="8008"]',
+            price: 200,
 
-    document.addEventListener('DOMContentLoaded', function () {
-      // Esta función se encarga de actualizar el precio
-      function updatePriceByName(tentName) {
-        // Encuentra la opción con el nombre correspondiente y actualiza el precio
-        var selectedOption = config.config[0].options.find(
-          (option) => option.name === tentName
-        );
-        if (selectedOption) {
-          var totalPrice = basePrice + selectedOption.price;
-          document.getElementById(
-            'total-value'
-          ).textContent = `Total: $${totalPrice}`;
-        }
+          },
+          {
+            name: "Wolf Pack Pro",
+            selector: '[instance="8169"]',
+            price: 200,
+
+          },
+
+        ],
+        default: 0,
+      },
+      {
+        name: "Kitchen",
+        type: "select",
+        options: [
+          {
+            name: "None",
+            selector: '[instance="22222"]',
+            price: 2,
+
+          },
+
+          {
+            name: "Kitchen Closed",
+            selector: '[instance="3992"]',
+            price: 200,
+
+          },
+          {
+            name: "Kitchen Open",
+            selector: '[instance="4123"]',
+            price: 200,
+
+          },
+
+        ],
+        default: 0,
+      },
+      {
+        name: "Power Station",
+        type: "select",
+        options: [
+          {
+            name: "None",
+            selector: '[instance="33333"]',
+            price: 3,
+
+          },
+          {
+            name: "Power Station",
+            selector: '[instance= "8515"]',
+            price: 200,
+
+          },
+          {
+            name: "Power Station Open",
+            selector: '[instance="8547"]',
+            price: 200,
+
+          },
+
+        ],
+        default: 0,
+      },
+      {
+        name: "Cooler",
+        type: "select",
+        options: [
+          {
+            name: "None",
+            selector: '[instance="4444"]',
+            price: 4,
+
+          },
+
+          {
+            name: "Powered Cooler",
+            selector: '[instance= "8330"]',
+            price: 200,
+
+          },
+          {
+            name: "Ice Chest",
+            selector: '[instance="8481"]',
+            price: 200,
+
+          },
+          {
+            name: "Ice Chest Rotated",
+            selector: '[instance="10500"]',
+            price: 200,
+
+          },
+
+        ],
+        default: 0,
+      },
+      {
+        id: 2,
+        name: "Kayak",
+        type: "visible",
+        selector: '[instance="10369"]',
+        default: false,
+        // disabled: "disabled",
+      },
+      {
+        id: 3,
+        name: "Shower",
+        type: "visible",
+        selector: '[instance="5559"]',
+        default: false,
+      },
+      {
+        id: 4,
+        name: "Solar Panel",
+        type: "visible",
+        selector: '[instance="5691"]',
+        default: true,
+      },
+      {
+        id: 5,
+        name: "Bedding Box",
+        type: "visible",
+        selector: '[instance="5570"]',
+        default: false,
+      },
+      {
+        id: 6,
+        name: "Propane Tank",
+        type: "visible",
+        selector: '[instance="7874"]',
+        default: false,
+      },
+      {
+        id: 7,
+        name: "Watter Tank",
+        type: "visible",
+        selector: '[instance="7917"]',
+        default: false,
+      },
+    ],
+  };
+
+  var iframeEl = document.getElementById("api-frame");
+  var optionsEl = document.querySelector(".options");
+  var configurator = new SketchfabConfigurator.Configurator(
+    iframeEl,
+    optionsEl,
+    config
+  );
+
+  var basePrice = 6000; // Establece el valor base a 6000
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    // Esta función se encarga de actualizar el precio
+    function updatePriceByName(tentName) {
+      // Encuentra la opción con el nombre correspondiente y actualiza el precio
+      var selectedOption = config.config[0].options.find(
+        (option) => option.name === tentName
+      );
+      if (selectedOption) {
+        var totalPrice = basePrice + selectedOption.price;
+        document.getElementById(
+          "total-value"
+        ).textContent = `Total: $${totalPrice}`;
       }
-
-      // Esta función inicializa el event listener en el select de Sketchfab
-      function initializeSketchfabSelectListener() {
-        var sketchfabSelect = document.querySelector('.option__control select');
-        if (sketchfabSelect) {
-          sketchfabSelect.addEventListener('change', function () {
-            var tentName =
-              sketchfabSelect.options[sketchfabSelect.selectedIndex].text;
-            updatePriceByName(tentName); // Actualizamos el precio basándonos en el nombre de la tienda
-          });
-
-          // Actualizamos el precio inicialmente de acuerdo al valor predeterminado seleccionado
-          var initialTentName =
-            sketchfabSelect.options[sketchfabSelect.selectedIndex].text;
-          updatePriceByName(initialTentName);
-        }
-      }
-
-      // Usamos un MutationObserver para detectar cuando el select de Sketchfab esté disponible
-      var observer = new MutationObserver(function (mutations) {
-        var selectFound = document.querySelector('.option__control select');
-        if (selectFound) {
-          initializeSketchfabSelectListener();
-          observer.disconnect(); // Desconecta el observer una vez que el select es encontrado
-        }
-      });
-
-      // Empezamos a observar cambios en el DOM
-      observer.observe(document.body, {
-        childList: true,
-        subtree: true,
-      });
-    });
-
-    // Initial update for default value
-    var initialPrice = config.config[0].options[config.config[0].default].price;
-    var totalValueEl = document.getElementById('total-value');
-    if (totalValueEl) {
-      totalValueEl.textContent = `Total Value:  ${initialPrice}`;
     }
-  </script>
+
+    // Esta función inicializa el event listener en el select de Sketchfab
+    function initializeSketchfabSelectListener() {
+      var sketchfabSelect = document.querySelector(".option__control select");
+      if (sketchfabSelect) {
+        sketchfabSelect.addEventListener("change", function () {
+          var tentName =
+            sketchfabSelect.options[sketchfabSelect.selectedIndex].text;
+          updatePriceByName(tentName); // Actualizamos el precio basándonos en el nombre de la tienda
+        });
+
+        // Actualizamos el precio inicialmente de acuerdo al valor predeterminado seleccionado
+        var initialTentName =
+          sketchfabSelect.options[sketchfabSelect.selectedIndex].text;
+        updatePriceByName(initialTentName);
+      }
+    }
+
+    // Usamos un MutationObserver para detectar cuando el select de Sketchfab esté disponible
+    var observer = new MutationObserver(function (mutations) {
+      var selectFound = document.querySelector(".option__control select");
+      if (selectFound) {
+        initializeSketchfabSelectListener();
+        observer.disconnect(); // Desconecta el observer una vez que el select es encontrado
+      }
+    });
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  });
+
+  // Initial update for default value
+  var initialPrice = config.config[0].options[config.config[0].default].price;
+  var totalValueEl = document.getElementById("total-value");
+  if (totalValueEl) {
+    totalValueEl.textContent = `Total Value:  ${initialPrice}`;
+  }
+
+</script>
+
+
 </html>
